@@ -1,7 +1,7 @@
 require 'epayco-sdk-ruby'
 
-Epayco.apiKey = '55b75fd6b1ef17eaf394fa985de6563c'
-Epayco.privateKey = '9327203f56866f1ed1ef4f56272ee771'
+Epayco.apiKey = 'c40acc8a877f180bf312c79aae0503f7'
+Epayco.privateKey = 'b13e95ea247b7cbe1f41724a1cb86d91'
 Epayco.lang = 'ES'
 Epayco.test = false
 
@@ -45,25 +45,25 @@ payment_info = {
   email: "diego.vargas@payco.co",
   bill: rand(999999).to_s,
   description: "SDK RUBY Pruebas ePayco Split TC",
-  value: "1",
+  value: "6",
   tax: "0",
-  tax_base: "1",
+  tax_base: "6",
   ip: "181.134.247.50",  #This is the client's IP, it is required
   url_response: "http://diego.dev-plugins.info/respuesta.html",
   url_confirmation: "http://diego.dev-plugins.info/confirmacion.php",
   use_default_card_customer: false,
   currency: "COP",
   splitpayment:"true",
-  split_app_id:"515360",
-  split_merchant_id:"515360",
-  split_type: "02",
-  split_primary_receiver:"515360",
+  split_app_id:"93006",
+  split_merchant_id:"93006",
+  split_type: "01",
+  split_primary_receiver:"93006",
   split_primary_receiver_fee: "0",
   split_rule:"multiple",#si se envía este parámetro el campo split_receivers se vuelve obligatorio
-  split_receivers:[{:id =>'93006', :total => '1', :iva => '0', :base_iva => '1', :fee => '0'}],
-#   split_receivers: JSON.generate({:id =>'P_CUST_ID_CLIENTE 1 RECEIVER', :total => '58000', :iva => '8000', :base_iva => '50000', :fee => '10'},
-#      {:id =>'P_CUST_ID_CLIENTE 2 RECEIVER', :total => '58000', :iva => '8000', :base_iva => '50000', :fee => '10'}) #Puede añadir la cantidad de receptores que desee
-# }
+  split_receivers:[
+    {:id =>'9898', :total => '3', :iva => '0', :base_iva => '3', :fee => '1'},
+    {:id =>'515360', :total => '3', :iva => '0', :base_iva => '3', :fee => '1'}
+  ],
   extra1: "",
   extra2: "",
   extra3: "",

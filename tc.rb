@@ -5,37 +5,39 @@ Epayco.privateKey = 'b13e95ea247b7cbe1f41724a1cb86d91'
 Epayco.lang = 'ES'
 Epayco.test = false
 
-credit_info = {
-  "card[number]" => "5240521756556621",
-  "card[exp_year]" => "2027",
-  "card[exp_month]" => "02",
-  "card[cvc]" => "049"
-}
+# credit_info = {
+#   "card[number]" => "5240521756556621",
+#   "card[exp_year]" => "2027",
+#   "card[exp_month]" => "02",
+#   "card[cvc]" => "049"
+# }
 
-begin
-  token = Epayco::Token.create credit_info
-rescue Epayco::Error => e
-  puts e
-end
+# begin
+#   token = Epayco::Token.create credit_info
+# rescue Epayco::Error => e
+#   puts e
+# end
 
-customer_info = {
-  token_card: token[:id],
-  name: "Juan Diego",
-  last_name: "Vargas Posada", #This parameter is optional
-  email: "diego.vargas@payco.co",
-  phone: "3042462218",
-  default: false
-}
+# customer_info = {
+#   token_card: token[:id],
+#   name: "Juan Diego",
+#   last_name: "Vargas Posada", #This parameter is optional
+#   email: "diego.vargas@payco.co",
+#   phone: "3042462218",
+#   default: false
+# }
 
-begin
-  customer = Epayco::Customers.create customer_info
-rescue Epayco::Error => e
-  puts e
-end
+# begin
+#   customer = Epayco::Customers.create customer_info
+# rescue Epayco::Error => e
+#   puts e
+# end
 
 payment_info = {
-  token_card: token[:id],
-  customer_id: customer[:data][:customerId],
+  # token_card: token[:id],
+  # customer_id: customer[:data][:customerId],
+  token_card: "0a7c4d1e8b3956e40645052",
+  customer_id: "077407e10171531365d57fc",
   doc_type: "CC",
   doc_number: "1194418306",
   name: "Juan Diego",
