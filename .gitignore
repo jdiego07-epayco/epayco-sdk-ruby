@@ -5,6 +5,7 @@
 ### Ruby ###
 *.gem
 *.rbc
+apiKeys.rb
 /.config
 /coverage/
 /InstalledFiles

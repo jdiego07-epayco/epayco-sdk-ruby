@@ -1,7 +1,10 @@
 require 'epayco-sdk-ruby'
+require './apiKeys.rb'
 
-Epayco.apiKey = 'c40acc8a877f180bf312c79aae0503f7'
-Epayco.privateKey = 'b13e95ea247b7cbe1f41724a1cb86d91'
+keys = ApiKeys.new
+
+Epayco.apiKey = keys.publicKey
+Epayco.privateKey = keys.privateKey
 Epayco.lang = 'ES'
 Epayco.test = false
 
@@ -32,9 +35,9 @@ pse_info = {
   bank: "1551",
   invoice: rand(999999).to_s,
   description: "SDK RUBY Pruebas ePayco Split PSE",
-  value: "1",
+  value: "3",
   tax: "0",
-  tax_base: "1",
+  tax_base: "3",
   currency: "COP",
   type_person: "0",
   doc_type: "CC",
@@ -56,8 +59,8 @@ pse_info = {
   split_primary_receiver_fee: "0",
   split_rule:"multiple",#si se envía este parámetro el campo split_receivers se vuelve obligatorio
   split_receivers:[
-    {:id =>'9898', :total => '3', :iva => '0', :base_iva => '3', :fee => '1'},
-    {:id =>'515360', :total => '3', :iva => '0', :base_iva => '3', :fee => '1'}
+    {:id =>'515360', :total => '1', :iva => '0', :base_iva => '1', :fee => '0'},
+    {:id =>'9898', :total => '2', :iva => '0', :base_iva => '2', :fee => '1'}
   ],
   #Extra params: These params are optional and can be used by the commerce
   extra1: "",

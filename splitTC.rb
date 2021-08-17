@@ -1,15 +1,18 @@
 require 'epayco-sdk-ruby'
+require './apiKeys.rb'
 
-Epayco.apiKey = 'c40acc8a877f180bf312c79aae0503f7'
-Epayco.privateKey = 'b13e95ea247b7cbe1f41724a1cb86d91'
+keys = ApiKeys.new
+
+Epayco.apiKey = keys.publicKey
+Epayco.privateKey = keys.privateKey
 Epayco.lang = 'ES'
 Epayco.test = false
 
 # credit_info = {
-#   "card[number]" => "5240521756556621",
-#   "card[exp_year]" => "2027",
-#   "card[exp_month]" => "02",
-#   "card[cvc]" => "049"
+#   "card[number]" => keys.cardNumber,
+#   "card[exp_year]" => keys.expYear,
+#   "card[exp_month]" => keys.expMonth,
+#   "card[cvc]" => keys.cvc
 # }
 
 # begin
@@ -36,8 +39,8 @@ Epayco.test = false
 payment_info = {
   # token_card: token[:id],
   # customer_id: customer[:data][:customerId],
-  token_card: "0837e22f054270493229d03",
-  customer_id: "0754200c0e6dd165e4c5344",  
+  token_card: keys.tokenCard,
+  customer_id: keys.customerId,  
   doc_type: "CC",
   doc_number: "1194418306",
   name: "Juan Diego",
